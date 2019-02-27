@@ -3,21 +3,14 @@ FROM nvidia/cuda:9.0-base-ubuntu16.04
 ENV LANG C.UTF-8
 LABEL com.nvidia.volumes.needed="nvidia_driver"
 
-RUN echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64 /" > /etc/apt/sources.list.d/nvidia-ml.list
+#RUN echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64 /" > /etc/apt/sources.list.d/nvidia-ml.list
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-         build-essential \
-         cmake \
          git \
          curl \
-         vim \
-         ca-certificates \
-         python-qt4 \
-         libjpeg-dev \
-         zip \
-         unzip \
-         libpng-dev &&\
-     rm -rf /var/lib/apt/lists/*
+         bzip2 
+    #&&\
+    #rm -rf /var/lib/apt/lists/*
 
 ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64
 ENV PYTHON_VERSION=3.6
@@ -36,7 +29,6 @@ RUN conda env create -f enviroment.yaml
 RUN echo "source activate kipoi-dev" > ~/.bash
 ENV PATH /opt/conda/envs/kipoi-dev/bin:$PATH
 
-COPY run.sh /run.sh
-RUN chmod +x /run.sh
-RUN kipoi ls
+#COPY run.sh /run.sh
+#RUN chmod +x /run.sh
 #CMD ["/run.sh"]
