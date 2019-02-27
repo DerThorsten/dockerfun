@@ -42,5 +42,6 @@ CMD source ~/.bashrc
 RUN chmod -R a+w /notebooks
 WORKDIR /notebooks
 
-# install kipio
-RUN pip install kipoi
+COPY run.sh /run.sh
+
+CMD ["/run.sh"]

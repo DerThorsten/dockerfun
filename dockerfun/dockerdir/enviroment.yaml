@@ -48,6 +48,8 @@ dependencies:
   - singularity
   # gitlsd
   - git-lfs
+  # jupyer
+  - jupyter
   - pip:
     - kipoi_interpret
     - kipoi_veff
