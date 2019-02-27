@@ -38,5 +38,5 @@ ENV PATH /opt/conda/envs/kipoi-dev/bin:$PATH
 
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
-
+RUN kipoi ls
 #CMD ["/run.sh"]

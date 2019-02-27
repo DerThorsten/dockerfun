@@ -16,5 +16,5 @@ sudo docker build dockerdir -t  docker_img
 run smth in container 
 
 ```bash
-sudo docker run --runtime=nvidia --rm docker_img  'nvidia-smi'
+sudo docker run --runtime=nvidia --rm docker_img  kipoi test DeepSea/predict --source=kipoi
 ```
