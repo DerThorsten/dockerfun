@@ -29,7 +29,7 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
     /opt/conda/bin/conda install conda-build
 
 ENV PATH=$PATH:/opt/conda/bin/
-ENV USER kipoi
+ENV USER kipoiusr
 # Create Enviroment
 COPY enviroment.yaml /enviroment.yaml
 RUN conda env create -f enviroment.yaml
@@ -43,7 +43,7 @@ CMD source ~/.bashrc
 RUN chmod -R a+w /notebooks
 WORKDIR /notebooks
 
+COPY config.yml /root/.kipoiusr/config.yml
+COPY run.sh /run.sh
 
-#COPY run.sh /run.sh
-
-#CMD ["/run.sh"]
+CMD ["/run.sh"]

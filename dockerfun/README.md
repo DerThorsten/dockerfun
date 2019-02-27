@@ -16,5 +16,5 @@ sudo docker build dockerdir -t  docker_img
 run smth in container 
 
 ```bash
-sudo docker run --runtime=nvidia --rm nvidia/cuda:9.0-base  'nvidia-smi'
+sudo docker run --runtime=nvidia --rm docker_img  'nvidia-smi'
 ```
