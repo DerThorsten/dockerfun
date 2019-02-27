@@ -1,6 +1,6 @@
 README:
 =======
-The dockerfile is based on [fast-ai docker files](https://github.com/Paperspace/fastai-docker/tree/master/fastai-v3
+The dockerfile is based on [fast-ai docker files](\https://github.com/Paperspace/fastai-docker/tree/master/fastai-v3
 )
 
 
