@@ -3,8 +3,6 @@ FROM nvidia/cuda:9.0-base-ubuntu16.04
 ENV LANG C.UTF-8
 LABEL com.nvidia.volumes.needed="nvidia_driver"
 
-#RUN echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64 /" > /etc/apt/sources.list.d/nvidia-ml.list
-
 RUN apt-get update && apt-get install -y --no-install-recommends \
          git \
          curl \
@@ -23,12 +21,9 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
 
 ENV PATH=$PATH:/opt/conda/bin/
 ENV USER kipoiusr
+
 # Create Enviroment
 COPY enviroment.yaml /enviroment.yaml
 RUN conda env create -f enviroment.yaml
 RUN echo "source activate kipoi-dev" > ~/.bash
 ENV PATH /opt/conda/envs/kipoi-dev/bin:$PATH
-
-#COPY run.sh /run.sh
-#RUN chmod +x /run.sh
-#CMD ["/run.sh"]
