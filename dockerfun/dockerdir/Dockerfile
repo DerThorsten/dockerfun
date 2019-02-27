@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.2-base-ubuntu16.04
+FROM nvidia/cuda:9.0-base-ubuntu16.04
 # See http://bugs.python.org/issue19846
 ENV LANG C.UTF-8
 LABEL com.nvidia.volumes.needed="nvidia_driver"
@@ -29,22 +29,21 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
     /opt/conda/bin/conda install conda-build
 
 ENV PATH=$PATH:/opt/conda/bin/
-ENV USER fastai
+ENV USER kipoi
 # Create Enviroment
 COPY enviroment.yaml /enviroment.yaml
 RUN conda env create -f enviroment.yaml
 
 WORKDIR /notebooks
 # Activate Source
-CMD source activate fastai
+CMD source activate kipoi
+CMD pip install kipoi
 CMD source ~/.bashrc
 
 RUN chmod -R a+w /notebooks
 WORKDIR /notebooks
 
-# Clone course-v3
-RUN git clone https://github.com/fastai/course-v3.git
 
-COPY run.sh /run.sh
+#COPY run.sh /run.sh
 
-CMD ["/run.sh"]
+#CMD ["/run.sh"]
