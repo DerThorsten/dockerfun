@@ -33,28 +33,10 @@ ENV USER kipoiusr
 # Create Enviroment
 COPY enviroment.yaml /enviroment.yaml
 RUN conda env create -f enviroment.yaml
+RUN echo "source activate kipoi-dev" > ~/.bash
+ENV PATH /opt/conda/envs/kipoi-dev/bin:$PATH
 
-WORKDIR /notebooks
-# Activate Source
-#CMD source ~/.bashrc
-CMD source activate kipoi
-CMD kipoi
-CMD source ~/.bashrc
-
-RUN chmod -R a+w /notebooks
-WORKDIR /notebooks
-
-# IPython
-EXPOSE 8888
-
-COPY config.yml /root/.kipoiusr/config.yml
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
-COPY run_jupyter.sh /run_jupyter.sh
-
-RUN chmod +x /run_jupyter.sh
-
-WORKDIR "/notebooks"
-#CMD ["/run_jupyter.sh", "--allow_root"]
-CMD ["/run.sh"]
+#CMD ["/run.sh"]
