@@ -23,6 +23,7 @@ dependencies:
   - maxentpy
   - tqdm
   - joblib
+  - pyaml 
   - zlib # in the case we need to build cyvcf2 by ourselfs in the pipo steo we need zlib to link
   #- coveralls
   - h5py>=2.7.0
