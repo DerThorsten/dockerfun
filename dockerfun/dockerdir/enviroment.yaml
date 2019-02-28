@@ -38,7 +38,7 @@ dependencies:
   - pyvcf>=0.6.8
   - pysam>=0.14.0
   - pyfaidx>=0.5.5.2
-  - cyvcf2>=0.8.4
+  - cyvcf2>=0.9.0 # (mmsplice)
   - bedtools>=2.27.1
   - htslib>=1.7
   - genomelake>=0.1.4
