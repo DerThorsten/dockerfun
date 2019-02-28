@@ -6,7 +6,8 @@ LABEL com.nvidia.volumes.needed="nvidia_driver"
 RUN apt-get update && apt-get install -y --no-install-recommends \
          git \
          curl \
-         bzip2 
+         bzip2 \
+         zlib1g-dev
     #&&\
     #rm -rf /var/lib/apt/lists/*
 
@@ -26,4 +27,5 @@ ENV USER kipoiusr
 COPY enviroment.yaml /enviroment.yaml
 RUN conda env create -f enviroment.yaml
 RUN echo "source activate kipoi-dev" > ~/.bash
+RUN pip install mmsplice --no-deps
 ENV PATH /opt/conda/envs/kipoi-dev/bin:$PATH
