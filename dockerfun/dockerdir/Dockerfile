@@ -33,4 +33,3 @@ ENV PATH /opt/conda/envs/kipoi-dev/bin:$PATH
 # for strange reasons mmsplice installation process tries 
 # to build c
 RUN pip install mmsplice --no-deps
-RUN cd kipoi && pip install --force-reinstall --no-deps -e . && cd ..
