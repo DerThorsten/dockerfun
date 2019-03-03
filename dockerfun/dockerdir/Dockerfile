@@ -24,10 +24,6 @@ ENV PATH=$PATH:/opt/conda/bin/
 ENV USER kipoiusr
 
 
-# clone
-RUN git clone https://github.com/DerThorsten/kipoi -b tqdm_hotfix 
-
-
 # Create Enviroment
 COPY enviroment.yaml /enviroment.yaml
 RUN conda env create -f enviroment.yaml
