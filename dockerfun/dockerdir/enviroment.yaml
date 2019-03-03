@@ -69,8 +69,8 @@ dependencies:
   - pip:
     #- mmsplice -< this makes trouble (the deps of mmsplice), therefore we install all dependencies here  and later install mmsplice wihtout any dependency
     - sklearn-pandas
-    - kipoi
-    - kipoi_interpret
-    - kipoi_veff
-    - kipoiseq
+    - kipoi>=0.6.9
+    - kipoi_interpret>=0.1.2
+    - kipoi_veff>=0.2.3
+    - kipoiseq>=0.2.3
     - concise>=0.6.5

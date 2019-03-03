@@ -24,15 +24,13 @@ ENV PATH=$PATH:/opt/conda/bin/
 ENV USER kipoiusr
 
 
-# clone
-RUN git clone https://github.com/DerThorsten/kipoi -b tqdm_hotfix 
-
-
 # Create Enviroment
 COPY enviroment.yaml /enviroment.yaml
 RUN conda env create -f enviroment.yaml
 RUN echo "source activate kipoi-dev" > ~/.bash
 ENV PATH /opt/conda/envs/kipoi-dev/bin:$PATH
 
+# for strange reasons mmsplice installation process tries 
+# to build c
 RUN pip install mmsplice --no-deps
 RUN cd kipoi && pip install --force-reinstall --no-deps -e . && cd ..
